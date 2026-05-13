@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemarkahan Tugasan 2 MPU3312</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .summary-card .label {
+            font-size: 11px;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .summary-card .value {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        
+        h2 {
+            color: #333;
+            font-size: 18px;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            font-size: 13px;
+        }
+        
+        thead {
+            background: #f0f2f5;
+        }
+        
+        th {
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tbody tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .grade {
+            display: inline-block;
+            padding: 0.35rem 0.7rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+        
+        .grade-amatcemerlang {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .grade-cemerlang {
+            background: #8bc34a;
+            color: white;
+        }
+        
+        .grade-kepujian {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .grade-sederhana {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .score {
+            font-weight: 600;
+            color: #667eea;
+            text-align: center;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .analysis-section {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body { 
+                background: white; 
+            }
+            .container { 
+                box-shadow: none; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">📋 LAPORAN PEMARKAHAN RASMI</div>
+            <h1>Tugasan 2 MPU3312</h1>
+            <p>Pendidikan Islam</p>
+            <p style="font-size: 12px; margin-top: 0.5rem;">Institut Pendidikan Guru Malaysia</p>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="label">Jumlah Pelajar</div>
+                <div class="value">21</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Purata</div>
+                <div class="value">21.8</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Tertinggi</div>
+                <div class="value">27.5</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Terendah</div>
+                <div class="value">17.0</div>
+            </div>
+        </div>
+
+        <h2>📊 Ringkasan Markah Semua Pelajar</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Pelajar</th>
+                    <th class="score">HP2</th>
+                    <th class="score">C6</th>
+                    <th class="score">KKG6</th>
+                    <th class="score">Jumlah</th>
+                    <th>Gred</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Abdul Rahman Al Daqhilli Bin Mohd Yusoff</td>
+                    <td class="score">6.0</td>
+                    <td class="score">6.5</td>
+                    <td class="score">6.5</td>
+                    <td class="score"><strong>19.0</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Nur Izzatul Fitrah Binti Omar</td>
+                    <td class="score">6.5</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.5</td>
+                    <td class="score"><strong>21.0</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Nuralia Nabilla Binti Abd Rahman</td>
+                    <td class="score">8.0</td>
+                    <td class="score">8.5</td>
+                    <td class="score">8.5</td>
+                    <td class="score"><strong>25.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nurin Nabihah Bt Mohd Nurilhadi</td>
+                    <td class="score">9.0</td>
+                    <td class="score">9.0</td>
+                    <td class="score">9.5</td>
+                    <td class="score"><strong>27.5</strong></td>
+                    <td><span class="grade grade-amatcemerlang">⭐ Amat Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Nurina Batrisyia Binti Sharudin</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.5</td>
+                    <td class="score">8.0</td>
+                    <td class="score"><strong>22.5</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Nurliyana Adilah Binti Md Yusof</td>
+                    <td class="score">7.5</td>
+                    <td class="score">7.5</td>
+                    <td class="score">8.0</td>
+                    <td class="score"><strong>23.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Nursyahirah Izzati Bt Mohd Zuhairi</td>
+                    <td class="score">6.5</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.0</td>
+                    <td class="score"><strong>20.5</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Nurul Ain Binti Nazulazwan</td>
+                    <td class="score">6.0</td>
+                    <td class="score">6.5</td>
+                    <td class="score">6.5</td>
+                    <td class="score"><strong>19.0</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Putra Naseem Bin Tun Perak Adiputra</td>
+                    <td class="score">8.0</td>
+                    <td class="score">8.5</td>
+                    <td class="score">9.0</td>
+                    <td class="score"><strong>25.5</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Siti Aisyah Binti Abd Razak</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.5</td>
+                    <td class="score">7.5</td>
+                    <td class="score"><strong>22.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Siti Nur Hazwani Binti Mohd Nazri</td>
+                    <td class="score">8.0</td>
+                    <td class="score">8.5</td>
+                    <td class="score">8.5</td>
+                    <td class="score"><strong>25.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Aisyah Aqilah Binti Ahmad Affendi</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.5</td>
+                    <td class="score">8.0</td>
+                    <td class="score"><strong>22.5</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Siti Nur Raudzoh Shahidan</td>
+                    <td class="score">6.5</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.0</td>
+                    <td class="score"><strong>20.5</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Sofia Khairunnisa Binti Khairol</td>
+                    <td class="score">7.5</td>
+                    <td class="score">8.0</td>
+                    <td class="score">8.0</td>
+                    <td class="score"><strong>23.5</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>An Nur Raudah Bt Zainal</td>
+                    <td class="score">5.5</td>
+                    <td class="score">6.0</td>
+                    <td class="score">5.5</td>
+                    <td class="score"><strong>17.0</strong></td>
+                    <td><span class="grade grade-sederhana">Sederhana</span></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Dzuria Inshirah Binti Zulyadain</td>
+                    <td class="score">8.5</td>
+                    <td class="score">9.0</td>
+                    <td class="score">8.5</td>
+                    <td class="score"><strong>26.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Hanie Maisarah Binti Amran</td>
+                    <td class="score">7.5</td>
+                    <td class="score">8.0</td>
+                    <td class="score">8.5</td>
+                    <td class="score"><strong>24.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Muhammad Al Bukhary Bin Azahat</td>
+                    <td class="score">6.5</td>
+                    <td class="score">7.0</td>
+                    <td class="score">6.5</td>
+                    <td class="score"><strong>20.0</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Nor Aisyah Binti Ab Manaf</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.5</td>
+                    <td class="score">7.5</td>
+                    <td class="score"><strong>22.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Nur Amalin Aisyah Binti Rusli</td>
+                    <td class="score">6.5</td>
+                    <td class="score">7.0</td>
+                    <td class="score">7.0</td>
+                    <td class="score"><strong>20.5</strong></td>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Nur Haziatul Binti Hassan</td>
+                    <td class="score">7.5</td>
+                    <td class="score">8.0</td>
+                    <td class="score">8.5</td>
+                    <td class="score"><strong>24.0</strong></td>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>📈 Analisis Gred</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Gred</th>
+                    <th>Julat Markah</th>
+                    <th class="score">Bilangan</th>
+                    <th class="score">Peratusan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="grade grade-amatcemerlang">Amat Cemerlang</span></td>
+                    <td>27.0 - 30.0</td>
+                    <td class="score">1</td>
+                    <td class="score">4.8%</td>
+                </tr>
+                <tr>
+                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
+                    <td>22.0 - 26.9</td>
+                    <td class="score">12</td>
+                    <td class="score">57.1%</td>
+                </tr>
+                <tr>
+                    <td><span class="grade grade-kepujian">Kepujian</span></td>
+                    <td>18.0 - 21.9</td>
+                    <td class="score">7</td>
+                    <td class="score">33.3%</td>
+                </tr>
+                <tr>
+                    <td><span class="grade grade-sederhana">Sederhana</span></td>
+                    <td>15.0 - 17.9</td>
+                    <td class="score">1</td>
+                    <td class="score">4.8%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🎯 Analisis Keseluruhan</h2>
+
+        <div class="analysis-section">
+            <strong>Prestasi Umum:</strong> Pelajar-pelajar menunjukkan prestasi yang baik dengan purata markah 21.8 dari 30. Majoriti pelajar (57.1%) mencapai gred Cemerlang, manakala 33.3% pula mencapai gred Kepujian. Analisis ini menunjukkan pemahaman yang memuaskan tentang sistem kehidupan Islam dan kemampuan untuk menganalisis isu serta mencadangkan penyelesaian.
+        </div>
+
+        <div class="analysis-section">
+            <strong>Kekuatan:</strong> Pelajar-pelajar menunjukkan kemampuan yang baik dalam menganalisis isu berkaitan sistem kehidupan Islam. Kebanyakan penulisan mengandungi struktur yang jelas dengan pengenalan, isi kandungan, dan kesimpulan yang sempurna. Penyokong ayat al-Quran dan hadis juga dilakukan dengan relevan.
+        </div>
+
+        <div class="analysis-section">
+            <strong>Cadangan Penambahbaikan:</strong> Pelajar disarankan untuk meningkatkan kedalaman analisis isu dengan menambahkan perspektif berbeda, memperkaya penulisan dengan data empirik terkini, dan mempertajam kemampuan dalam mengaplikasikan prinsip Islam secara holistik. Rujukan kepada tokoh pemikir Islam dan studi perbandingan juga akan meningkatkan kualitas akademik penulisan.
+        </div>
+
+        <div class="footer">
+            <p><strong>Laporan Pemarkahan Tugasan 2 MPU3312</strong></p>
+            <p>Rubrik berdasarkan kriteria rasmi Institut Pendidikan Guru Malaysia</p>
+            <p>Tarikh Pemarkahan: 13 Mei 2026</p>
+        </div>
+    </div>
+</body>
+</html>
