@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Pemarkahan Tugasan 2 MPU3312</title>
+    <title>Laporan Pemarkahan MPU3312</title>
     <style>
         * { 
             margin: 0; 
@@ -16,9 +16,98 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 2rem 1rem;
-            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
+        /* PASSWORD FORM */
+        .password-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .password-container.show {
+            display: flex !important;
+        }
+        
+        .password-box {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .password-box h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 24px;
+        }
+        
+        .password-box p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 14px;
+        }
+        
+        .password-box input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: monospace;
+        }
+        
+        .password-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .password-box button {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .password-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .error-message {
+            color: #d32f2f;
+            font-size: 13px;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        /* LAPORAN */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -166,23 +255,22 @@
             font-size: 12px;
         }
         
-        .analysis-section {
-            background: #f9f9f9;
-            padding: 1.5rem;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-            margin: 1.5rem 0;
-            line-height: 1.7;
-            font-size: 14px;
+        .logout-btn {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
         }
         
-        @media print {
-            body { 
-                background: white; 
-            }
-            .container { 
-                box-shadow: none; 
-            }
+        .logout-btn:hover {
+            background: #764ba2;
         }
         
         @media (max-width: 768px) {
@@ -205,7 +293,29 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- PASSWORD PROTECTION -->
+    <div class="password-container show" id="passwordContainer">
+        <div class="password-box">
+            <h2>🔐 Akses Terbatas</h2>
+            <p>Sila masukkan kata laluan untuk melihat laporan</p>
+            <input 
+                type="password" 
+                id="passwordInput" 
+                placeholder="Masukkan kata laluan..."
+                onkeypress="handleKeyPress(event)"
+            >
+            <button onclick="checkPassword()">Masuk</button>
+            <div class="error-message" id="errorMessage">
+                ❌ Kata laluan salah. Sila cuba lagi.
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGOUT BUTTON -->
+    <button class="logout-btn" id="logoutBtn" style="display: none;" onclick="logout()">Keluar</button>
+
+    <!-- LAPORAN -->
+    <div class="container" id="reportContainer" style="display: none;">
         <div class="header">
             <div class="badge">📋 LAPORAN PEMARKAHAN RASMI</div>
             <h1>Tugasan 2 MPU3312</h1>
@@ -439,64 +549,62 @@
             </tbody>
         </table>
 
-        <h2>📈 Analisis Gred</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Gred</th>
-                    <th>Julat Markah</th>
-                    <th class="score">Bilangan</th>
-                    <th class="score">Peratusan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="grade grade-amatcemerlang">Amat Cemerlang</span></td>
-                    <td>27.0 - 30.0</td>
-                    <td class="score">1</td>
-                    <td class="score">4.8%</td>
-                </tr>
-                <tr>
-                    <td><span class="grade grade-cemerlang">Cemerlang</span></td>
-                    <td>22.0 - 26.9</td>
-                    <td class="score">12</td>
-                    <td class="score">57.1%</td>
-                </tr>
-                <tr>
-                    <td><span class="grade grade-kepujian">Kepujian</span></td>
-                    <td>18.0 - 21.9</td>
-                    <td class="score">7</td>
-                    <td class="score">33.3%</td>
-                </tr>
-                <tr>
-                    <td><span class="grade grade-sederhana">Sederhana</span></td>
-                    <td>15.0 - 17.9</td>
-                    <td class="score">1</td>
-                    <td class="score">4.8%</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>🎯 Analisis Keseluruhan</h2>
-
-        <div class="analysis-section">
-            <strong>Prestasi Umum:</strong> Pelajar-pelajar menunjukkan prestasi yang baik dengan purata markah 21.8 dari 30. Majoriti pelajar (57.1%) mencapai gred Cemerlang, manakala 33.3% pula mencapai gred Kepujian. Analisis ini menunjukkan pemahaman yang memuaskan tentang sistem kehidupan Islam dan kemampuan untuk menganalisis isu serta mencadangkan penyelesaian.
-        </div>
-
-        <div class="analysis-section">
-            <strong>Kekuatan:</strong> Pelajar-pelajar menunjukkan kemampuan yang baik dalam menganalisis isu berkaitan sistem kehidupan Islam. Kebanyakan penulisan mengandungi struktur yang jelas dengan pengenalan, isi kandungan, dan kesimpulan yang sempurna. Penyokong ayat al-Quran dan hadis juga dilakukan dengan relevan.
-        </div>
-
-        <div class="analysis-section">
-            <strong>Cadangan Penambahbaikan:</strong> Pelajar disarankan untuk meningkatkan kedalaman analisis isu dengan menambahkan perspektif berbeda, memperkaya penulisan dengan data empirik terkini, dan mempertajam kemampuan dalam mengaplikasikan prinsip Islam secara holistik. Rujukan kepada tokoh pemikir Islam dan studi perbandingan juga akan meningkatkan kualitas akademik penulisan.
-        </div>
-
         <div class="footer">
             <p><strong>Laporan Pemarkahan Tugasan 2 MPU3312</strong></p>
             <p>Rubrik berdasarkan kriteria rasmi Institut Pendidikan Guru Malaysia</p>
             <p>Tarikh Pemarkahan: 13 Mei 2026</p>
         </div>
     </div>
+
+    <script>
+        // UBAH PASSWORD DI SINI
+        const CORRECT_PASSWORD = "mpu3312";
+        
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMessage');
+            
+            if (input === CORRECT_PASSWORD) {
+                // Password betul - simpan session dan tampilkan laporan
+                sessionStorage.setItem('authenticated', 'true');
+                showReport();
+            } else {
+                // Password salah - tampilkan error
+                errorMsg.classList.add('show');
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        }
+        
+        function showReport() {
+            document.getElementById('passwordContainer').style.display = 'none';
+            document.getElementById('reportContainer').style.display = 'block';
+            document.getElementById('logoutBtn').style.display = 'block';
+        }
+        
+        function logout() {
+            sessionStorage.removeItem('authenticated');
+            document.getElementById('passwordContainer').classList.add('show');
+            document.getElementById('reportContainer').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordInput').focus();
+        }
+        
+        // Check jika sudah login sebelumnya
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('authenticated') === 'true') {
+                showReport();
+            } else {
+                document.getElementById('passwordInput').focus();
+            }
+        });
+    </script>
 </body>
 </html>
